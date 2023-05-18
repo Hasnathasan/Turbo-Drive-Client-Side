@@ -2,14 +2,16 @@ import React from 'react';
 import {
     createBrowserRouter,
   } from "react-router-dom";
-import Main from '../Pages/HomePage/Main/Main';
+import Main from '../Pages/Main/Main';
 import Home from '../Pages/HomePage/Home/Home';
 import Login from '../Pages/LoginPage/Login';
+import SignUp from '../Pages/SignupPage/SignUp';
+import AuthProvider from '../Provider/AuthProvider';
 
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Main></Main>,
+      element: <AuthProvider><Main></Main></AuthProvider>,
       children: [
         {
             path: '/',
@@ -18,6 +20,10 @@ import Login from '../Pages/LoginPage/Login';
         {
             path: '/login',
             element: <Login></Login>
+        },
+        {
+            path: '/signup',
+            element: <SignUp></SignUp>
         }
       ]
     },
