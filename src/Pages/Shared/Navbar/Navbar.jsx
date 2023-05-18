@@ -1,9 +1,11 @@
 import { Button } from "flowbite-react";
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/car.png";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -29,30 +31,29 @@ const Navbar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-            <NavLink
-          to="/"
-          className={({ isActive, isPending }) =>
-            isActive ? "text-orange-500" : isPending ? "pending" : ""
-          }
-        >
-          <span className="text-base font-semibold hover:text-orange-500 ease-out duration-300">
-            Home
-          </span>
-        </NavLink>
+              <NavLink
+                to="/"
+                className={({ isActive, isPending }) =>
+                  isActive ? "text-orange-500" : isPending ? "pending" : ""
+                }
+              >
+                <span className="text-base font-semibold hover:text-orange-500 ease-out duration-300">
+                  Home
+                </span>
+              </NavLink>
             </li>
             <li>
-                <NavLink
-              to="/blog"
-              className={({ isActive, isPending }) =>
-                isActive ? "text-orange-500" : isPending ? "pending" : ""
-              }
-            >
-              <span className="text-base font-semibold hover:text-orange-500 ease-out duration-300">
-                Blog
-              </span>
-            </NavLink>
+              <NavLink
+                to="/blog"
+                className={({ isActive, isPending }) =>
+                  isActive ? "text-orange-500" : isPending ? "pending" : ""
+                }
+              >
+                <span className="text-base font-semibold hover:text-orange-500 ease-out duration-300">
+                  Blog
+                </span>
+              </NavLink>
             </li>
-            
           </ul>
         </div>
         <Link to="/" className="flex items-center gap-3">
@@ -74,22 +75,35 @@ const Navbar = () => {
           </span>
         </NavLink>
         <NavLink
-              to="/blog"
-              className={({ isActive, isPending }) =>
-                isActive ? "text-primary2" : isPending ? "pending" : ""
-              }
-            >
-              <span className="text-base font-semibold hover:text-primary1 ease-out duration-300">
-                Blog
-              </span>
-            </NavLink>
+          to="/blog"
+          className={({ isActive, isPending }) =>
+            isActive ? "text-primary2" : isPending ? "pending" : ""
+          }
+        >
+          <span className="text-base font-semibold hover:text-primary1 ease-out duration-300">
+            Blog
+          </span>
+        </NavLink>
       </div>
       <div className="navbar-end">
-        <Link to="/login">
-          <Button outline={true} gradientDuoTone="cyanToBlue">
-            Login
-          </Button>
-        </Link>
+        {user ? (
+          <div className="flex gap-2 items-center">
+            <div className="tooltip tooltip-bottom avatar" data-tip={user.displayName}>
+              <div className="w-14 rounded-full">
+                <img src={user.photoURL} />
+              </div>
+            </div>
+            <Button onClick={logOut} outline={true} gradientDuoTone="cyanToBlue">
+              Log out
+            </Button>
+          </div>
+        ) : (
+          <Link to="/login">
+            <Button outline={true} gradientDuoTone="cyanToBlue">
+              Login
+            </Button>
+          </Link>
+        )}
       </div>
     </div>
   );

@@ -1,8 +1,43 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import logo from "../../assets/car.png";
 import { Link } from "react-router-dom";
+import { AuthContext } from '../../Provider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
+    const [error, setError] = useState()
+    const {signUp, logOut} = useContext(AuthContext);
+    const handleSignUp = event => {
+        event.preventDefault()
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const photo = form.photo.value;
+        setError("")
+        signUp(email, password)
+            .then((result) => {
+                const user = result.user;
+                UpdateUser(user, name, photo)
+                Swal.fire(
+                    'User sign up successfull',
+                    'Login to continue',
+                    'success'
+                  )
+                  logOut()
+                form.reset()
+            })
+            .catch(error => console.log(error))
+    }
+
+    const UpdateUser = (user, name, photo) => {
+        updateProfile(user, {
+            displayName: name, photoURL: photo
+          })
+            .then(() => {})
+            .catch(error => setError(error))
+    }
     return (
         <div>
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto">
@@ -17,9 +52,10 @@ const SignUp = () => {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
               Sign up to create your account
             </h1>
-            <form className="space-y-4 md:space-y-6" action="#">
+            
+            <form onSubmit={handleSignUp} className="space-y-4 md:space-y-6" action="#">
               <h3 className="text-base text-green-500"></h3>
-              <h3 className="text-base text-red-600"></h3>
+              <h3 className="text-base text-red-600">{error}</h3>
               <div>
                 <label
                   htmlFor="name"

@@ -1,18 +1,40 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import logo from "../../assets/car.png";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
+    const [error, setError] = useState()
+    const {signIn, googleSignIn} = useContext(AuthContext);
     const handleLogin = event => {
         event.preventDefault()
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+        signIn(email, password)
+            .then(() => {
+                Swal.fire(
+                    'Login Successfull',
+                    'Click Ok',
+                    'success'
+                  )
+                form.reset()
+            })
+            .catch(error => setError(error.message))
     }
 
     const handleGoogleSignIn = () => {
-        
+        googleSignIn()
+            .then(() => {
+                Swal.fire(
+                    'Login Successfull',
+                    'Click Ok',
+                    'success'
+                  )
+            })
+            .catch(error => setError(error.message))
     }
   return (
     <div>
@@ -29,9 +51,10 @@ const Login = () => {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
               Sign in to your account
             </h1>
+            
             <form onSubmit={handleLogin} className="space-y-4 md:space-y-6" action="#">
               <h3 className="text-base text-green-500"></h3>
-              <h3 className="text-base text-red-600"></h3>
+              <h3 className="text-base text-red-600">{error}</h3>
               <div>
                 <label
                   htmlFor="email"
