@@ -54,6 +54,23 @@ const Navbar = () => {
                 </span>
               </NavLink>
             </li>
+            <li>
+              {user ? (
+                <Button
+                  onClick={logOut}
+                  outline={true}
+                  gradientDuoTone="cyanToBlue"
+                >
+                  Log out
+                </Button>
+              ) : (
+                <Link to="/login">
+                  <Button outline={true} gradientDuoTone="cyanToBlue">
+                    Login
+                  </Button>
+                </Link>
+              )}
+            </li>
           </ul>
         </div>
         <Link to="/" className="flex items-center gap-3">
@@ -88,17 +105,25 @@ const Navbar = () => {
       <div className="navbar-end">
         {user ? (
           <div className="flex gap-2 items-center">
-            <div className="tooltip tooltip-bottom avatar" data-tip={user.displayName}>
+            <div
+              className="tooltip tooltip-bottom avatar"
+              data-tip={user.displayName}
+            >
               <div className="w-14 rounded-full">
                 <img src={user.photoURL} />
               </div>
             </div>
-            <Button onClick={logOut} outline={true} gradientDuoTone="cyanToBlue">
+            <Button
+              className="hidden lg:block"
+              onClick={logOut}
+              outline={true}
+              gradientDuoTone="cyanToBlue"
+            >
               Log out
             </Button>
           </div>
         ) : (
-          <Link to="/login">
+          <Link className="hidden lg:block" to="/login">
             <Button outline={true} gradientDuoTone="cyanToBlue">
               Login
             </Button>
