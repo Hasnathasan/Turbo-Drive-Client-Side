@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 import { AuthContext } from '../../Provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import Swal from 'sweetalert2';
+import useTitle from '../../CustomHooks/useTitle';
 
 const SignUp = () => {
+  useTitle("Sign Up")
     const [error, setError] = useState()
     const {signUp, logOut} = useContext(AuthContext);
     const handleSignUp = event => {

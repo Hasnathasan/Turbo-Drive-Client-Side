@@ -3,8 +3,10 @@ import logo from "../../assets/car.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import useTitle from "../../CustomHooks/useTitle";
 
 const Login = () => {
+  useTitle("Login")
     const [error, setError] = useState()
     const {signIn, googleSignIn} = useContext(AuthContext);
     const handleLogin = event => {
