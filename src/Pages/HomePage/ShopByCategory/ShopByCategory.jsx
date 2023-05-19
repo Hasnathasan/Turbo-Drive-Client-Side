@@ -10,7 +10,7 @@ const ShopByCategory = () => {
   const [toys, setToys] = useState([]);
   const handleToys = (category) => {
     setLoading(true);
-    fetch(`http://localhost:5000/toys?category=${category}`)
+    fetch(`https://toy-marketplace-server-henna.vercel.app/toys?category=${category}`)
       .then((res) => res.json())
       .then((data) => {
         setToys(data);
@@ -21,8 +21,7 @@ const ShopByCategory = () => {
     <div>
       <Tabs>
         <TabList>
-          <div className="flex mx-auto w-max gap-6">
-            <Tab>
+            <Tab className={"react-tabs__tab--selected"} >
               <Button
                 onClick={() => handleToys("sportscar")}
                 outline={true}
@@ -49,10 +48,9 @@ const ShopByCategory = () => {
                 POLICE CAR
               </Button>
             </Tab>
-          </div>
         </TabList>
 
-        <TabPanel>
+        <TabPanel className={"react-tabs__tab-panel--selected"}>
           {loading ? (
             <div className="h-screen flex justify-center items-center">
               <Spinner aria-label="Extra large spinner example" size="xl" />
