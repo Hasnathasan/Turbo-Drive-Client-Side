@@ -34,22 +34,65 @@ const Navbar = () => {
               <NavLink
                 to="/"
                 className={({ isActive, isPending }) =>
-                  isActive ? "text-orange-500" : isPending ? "pending" : ""
+                  isActive ? "text-primary2" : isPending ? "pending" : ""
                 }
               >
-                <span className="text-base font-semibold hover:text-orange-500 ease-out duration-300">
+                <span className="text-base font-semibold hover:text-primary1 ease-out duration-300">
                   Home
                 </span>
               </NavLink>
             </li>
             <li>
+                  <NavLink
+                    to="/alltoys"
+                    className={({ isActive, isPending }) =>
+                      isActive ? "text-primary2" : isPending ? "bg-white" : ""
+                    }
+                  >
+                    <span className="text-base font-semibold hover:text-primary1 ease-out duration-300">
+                      All Toys
+                    </span>
+                  </NavLink>
+                </li>
+            {user ? (
+              <>
+                
+                <li>
+                  <NavLink
+                    to="/mytoys"
+                    className={({ isActive, isPending }) =>
+                      isActive ? "text-primary2" : isPending ? "pending" : ""
+                    }
+                  >
+                    <span className="text-base font-semibold hover:text-primary1 ease-out duration-300">
+                      My Toys
+                    </span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/addtoy"
+                    className={({ isActive, isPending }) =>
+                      isActive ? "text-primary2" : isPending ? "pending" : ""
+                    }
+                  >
+                    <span className="text-base font-semibold hover:text-primary1 ease-out duration-300">
+                      Add Toy
+                    </span>
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              ""
+            )}
+            <li>
               <NavLink
                 to="/blog"
                 className={({ isActive, isPending }) =>
-                  isActive ? "text-orange-500" : isPending ? "pending" : ""
+                  isActive ? "text-primary2" : isPending ? "pending" : ""
                 }
               >
-                <span className="text-base font-semibold hover:text-orange-500 ease-out duration-300">
+                <span className="text-base font-semibold hover:text-primary1 ease-out duration-300">
                   Blog
                 </span>
               </NavLink>
@@ -74,13 +117,13 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/" className="flex items-center gap-3">
-          <img className="w-20 h-20" src={logo} alt="" />
-          <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r to-[#da8deb] from-[#47dcd1]">
+          <img className="w-11 h-11 md:w-20 md:h-20" src={logo} alt="" />
+          <span className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r to-[#da8deb] from-[#47dcd1]">
             TurboDrive
           </span>
         </Link>
       </div>
-      <div className="navbar-center hidden lg:flex gap-4">
+      <div className="navbar-center hidden lg:flex gap-7">
         <NavLink
           to="/"
           className={({ isActive, isPending }) =>
@@ -91,6 +134,43 @@ const Navbar = () => {
             Home
           </span>
         </NavLink>
+        <NavLink
+                    to="/alltoys"
+                    className={({ isActive, isPending }) =>
+                      isActive ? "text-primary2" : isPending ? "pending" : ""
+                    }
+                  >
+                    <span className="text-base font-semibold hover:text-primary1 ease-out duration-300">
+                      All Toys
+                    </span>
+                  </NavLink>
+        {user ? (
+              <>
+                  
+                  <NavLink
+                    to="/mytoys"
+                    className={({ isActive, isPending }) =>
+                      isActive ? "text-primary2" : isPending ? "pending" : ""
+                    }
+                  >
+                    <span className="text-base font-semibold hover:text-primary1 ease-out duration-300">
+                      My Toys
+                    </span>
+                  </NavLink>
+                  <NavLink
+                    to="/addtoy"
+                    className={({ isActive, isPending }) =>
+                      isActive ? "text-primary2" : isPending ? "pending" : ""
+                    }
+                  >
+                    <span className="text-base font-semibold hover:text-primary1 ease-out duration-300">
+                      Add Toy
+                    </span>
+                  </NavLink>
+              </>
+            ) : (
+              ""
+            )}
         <NavLink
           to="/blog"
           className={({ isActive, isPending }) =>
@@ -106,7 +186,7 @@ const Navbar = () => {
         {user ? (
           <div className="flex gap-2 items-center">
             <div
-              className="tooltip tooltip-bottom avatar"
+              className="tooltip tooltip-left avatar"
               data-tip={user.displayName}
             >
               <div className="w-14 rounded-full">
