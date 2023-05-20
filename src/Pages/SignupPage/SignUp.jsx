@@ -8,7 +8,7 @@ import useTitle from '../../CustomHooks/useTitle';
 
 const SignUp = () => {
   useTitle("Sign Up")
-    const [error, setError] = useState()
+    const [error, setError] = useState("")
     const {signUp, logOut} = useContext(AuthContext);
     const handleSignUp = event => {
         event.preventDefault()
@@ -30,7 +30,7 @@ const SignUp = () => {
                   logOut()
                 form.reset()
             })
-            .catch(error => console.log(error))
+            .catch(error => setError(error.message))
     }
 
     const UpdateUser = (user, name, photo) => {

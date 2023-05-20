@@ -21,13 +21,15 @@ const ShopByCategory = () => {
   },[category])
     
   return (
-    <div>
+    <div className="my-36">
+      <h1 className="text-base md:text-6xl py-2 font-bold uppercase text-center text-transparent bg-clip-text bg-gradient-to-r to-[#cd7ddf] from-[#34cfc5]">The Toy Emporium</h1>
+      <p className="text-xs mb-5 mt-2 md:text-base text-center font-bold text-gray-500">Unleash Your Imagination and Bring Home the Fun</p>
       {loading ? (
         <div className="h-screen flex justify-center items-center">
           <Spinner aria-label="Extra large spinner example" size="xl" />
         </div>
       ) : (
-        <div className="my-36">
+        <div>
           <div className="flex gap-5 w-max mx-auto my-7 items-center">
             <Button onClick={() => setCategory("sportscar")} outline={category == "sportscar"? false : true} gradientDuoTone="cyanToBlue">
               Sports Car
