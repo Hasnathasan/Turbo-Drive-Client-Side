@@ -5,7 +5,7 @@ import ShopByCategory from '../ShopByCategory/ShopByCategory';
 import useTitle from '../../../CustomHooks/useTitle';
 
 const Home = () => {
-    useTitle("Home")
+    useTitle("Turbo-Home")
     return (
         <div>
             <Banner></Banner>

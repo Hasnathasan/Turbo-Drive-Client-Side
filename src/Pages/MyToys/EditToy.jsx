@@ -1,8 +1,10 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useTitle from '../../CustomHooks/useTitle';
 
 const EditToy = () => {
+  useTitle("Turbo-Edit toys")
     const toy = useLoaderData();
     const {_id, price, quantity, description, productName} = toy;
     const handleUpdate = event => {

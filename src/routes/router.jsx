@@ -13,6 +13,7 @@ import Blog from '../Pages/Blog/Blog';
 import MyToys from '../Pages/MyToys/MyToys';
 import EditToy from '../Pages/MyToys/EditToy';
 import Details from '../Pages/Details/Details';
+import ErrorPage from '../Pages/ErrorPage/ErrorPage';
 
   const router = createBrowserRouter([
     {
@@ -60,6 +61,10 @@ import Details from '../Pages/Details/Details';
         }
       ]
     },
+    {
+      path: "*",
+      element: <ErrorPage></ErrorPage>
+    }
   ]);
 
 export default router;

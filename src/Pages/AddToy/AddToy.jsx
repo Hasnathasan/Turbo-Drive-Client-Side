@@ -3,8 +3,10 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import pic from '../../assets/pic.jpg'
+import useTitle from "../../CustomHooks/useTitle";
 
 const AddToy = () => {
+    useTitle("Turbo-Add toy")
     const {user, loading} = useContext(AuthContext);
     if(loading){
         return <h1>Loading...</h1>

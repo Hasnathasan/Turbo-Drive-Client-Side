@@ -1,8 +1,10 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import ToyRow from "./ToyRow";
+import useTitle from "../../CustomHooks/useTitle";
 
 const AllToy = () => {
+  useTitle("Turbo-All toys")
   const toys = useLoaderData();
   return (
     <div className="overflow-x-auto w-full">

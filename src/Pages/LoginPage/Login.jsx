@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import useTitle from "../../CustomHooks/useTitle";
 
 const Login = () => {
-  useTitle("Login")
+  useTitle("Turbo-Login")
     const [error, setError] = useState()
     const {signIn, googleSignIn} = useContext(AuthContext);
     const handleLogin = event => {
