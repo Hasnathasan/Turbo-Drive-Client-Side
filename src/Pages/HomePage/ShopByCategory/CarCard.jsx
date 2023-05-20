@@ -6,7 +6,7 @@ const CarCard = ({toy}) => {
     const {_id, productName, rating, price, photo } = toy;
   return (
     <div>
-      <Card className="h-full flex flex-col" imgSrc={photo}>
+      <Card className="h-full flex flex-col" data-aos="zoom-in-right" data-aos-duration="1200" imgSrc={photo}>
         <h5 className="text-2xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r to-[#d786e9] from-[#29ccc1]">
           {productName}
         </h5>

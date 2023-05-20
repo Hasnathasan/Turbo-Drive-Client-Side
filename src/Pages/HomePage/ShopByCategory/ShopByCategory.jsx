@@ -1,6 +1,5 @@
 import { Button, Spinner } from "flowbite-react";
 import React, { useContext, useEffect, useState } from "react";
-import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import CarCard from "./CarCard";
 import { AuthContext } from "../../../Provider/AuthProvider";
 
@@ -21,7 +20,7 @@ const ShopByCategory = () => {
   },[category])
     
   return (
-    <div className="my-36">
+    <div className="my-36" >
       <h1 className="text-base md:text-6xl py-2 font-bold uppercase text-center text-transparent bg-clip-text bg-gradient-to-r to-[#cd7ddf] from-[#34cfc5]">The Toy Emporium</h1>
       <p className="text-xs mb-5 mt-2 md:text-base text-center font-bold text-gray-500">Unleash Your Imagination and Bring Home the Fun</p>
       {loading ? (

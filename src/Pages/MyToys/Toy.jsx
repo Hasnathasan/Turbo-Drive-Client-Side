@@ -1,6 +1,6 @@
 import { Button } from "flowbite-react";
 import React, { useState } from "react";
-import { FaBeer, FaEdit, FaTrashAlt } from "react-icons/fa";
+import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Toy = ({ toy, handleDelete }) => {
