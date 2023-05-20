@@ -1,8 +1,9 @@
 import { Button, Card } from "flowbite-react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const CarCard = ({toy}) => {
-    const {productName, rating, price, photo } = toy;
+    const {_id, productName, rating, price, photo } = toy;
   return (
     <div>
       <Card className="h-full flex flex-col" imgSrc={photo}>
@@ -17,6 +18,7 @@ const CarCard = ({toy}) => {
           Rating: {rating}
         </p>
         </div>
+        <Link to={`/details/${_id}`}>
         <Button
         className="mt-auto"
       outline={true}
@@ -24,6 +26,7 @@ const CarCard = ({toy}) => {
     >
       View Details
     </Button>
+        </Link>
       </Card>
     </div>
   );

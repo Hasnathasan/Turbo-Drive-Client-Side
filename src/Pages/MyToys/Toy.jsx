@@ -26,18 +26,18 @@ const Toy = ({ toy, handleDelete }) => {
             </div>
           </div>
           <div>
-            <div className="text-sm md:text-2xl text-transparent font-bold bg-clip-text bg-gradient-to-r to-[#ce72e2] from-[#26cec3]">
+            <h3 className="text-sm md:text-2xl text-transparent font-bold bg-clip-text bg-gradient-to-r to-[#ce72e2] from-[#26cec3]">
               {productName}
-            </div>
-            <div className="text-xs md:text-sm text-gray-500">
+            </h3>
+            <h3 className="text-xs md:text-base font-semibold text-slate-500">
               Price: ${price}
-            </div>
-            <div className="text-xs md:text-sm text-gray-500">
+            </h3>
+            <h3 className="text-xs md:text-base font-semibold text-slate-500">
               Quantity: {quantity}
-            </div>
-            <div className="text-xs md:text-sm text-gray-500">
+            </h3>
+            <h3 className="text-xs md:text-base font-semibold text-slate-500">
               Category: {category}
-            </div>
+            </h3>
           </div>
         </div>
       </th>

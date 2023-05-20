@@ -2,6 +2,7 @@ import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 import React, { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import pic from '../../assets/pic.jpg'
 
 const AddToy = () => {
     const {user, loading} = useContext(AuthContext);
@@ -52,11 +53,11 @@ const AddToy = () => {
         console.log(newToy);
     }
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
-    <div><h1>This is Another section</h1></div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-20">
+    <div><img src={pic} alt="" /></div>
     <section className="bg-white dark:bg-gray-900">
   <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-      <h2 className="mb-4 text-xl md:text-4xl font-bold  text-transparent bg-clip-text bg-gradient-to-r to-[#da8deb] from-[#47dcd1]">Add a new product</h2>
+      <h2 className="mb-4 text-2xl md:text-4xl font-bold  text-transparent bg-clip-text bg-gradient-to-r to-[#da8deb] from-[#47dcd1]">Add a new product</h2>
       <form onSubmit={handleSubmit}>
           <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
               <div className="sm:col-span-2">

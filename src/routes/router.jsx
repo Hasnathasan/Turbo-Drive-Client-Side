@@ -12,6 +12,7 @@ import AddToy from '../Pages/AddToy/AddToy';
 import Blog from '../Pages/Blog/Blog';
 import MyToys from '../Pages/MyToys/MyToys';
 import EditToy from '../Pages/MyToys/EditToy';
+import Details from '../Pages/Details/Details';
 
   const router = createBrowserRouter([
     {
@@ -33,6 +34,11 @@ import EditToy from '../Pages/MyToys/EditToy';
         {
           path: '/mytoys',
           element: <MyToys></MyToys>
+        },
+        {
+          path: '/details/:id',
+          element: <Details></Details>,
+          loader: ({params}) => fetch(`https://toy-marketplace-server-henna.vercel.app/toys/${params.id}`)
         },
         {
           path: '/edit/:id',

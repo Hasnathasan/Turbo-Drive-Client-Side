@@ -1,9 +1,9 @@
 import { Button } from "flowbite-react";
 import React from "react";
-import { FaTrashAlt, FaEdit } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ToyRow = ({ toy }) => {
-  const { name, productName, category, quantity, price, email } = toy;
+  const { _id, name, productName, category, quantity, price, email } = toy;
   return (
     <tr>
       <th>
@@ -12,18 +12,23 @@ const ToyRow = ({ toy }) => {
         </div>
       </th>
       <td>
-        {name}
-        <br />
+        <h5 className="text-xs md:text-lg mb-1 font-semibold text-slate-500">{name}</h5>
         <div className="badge badge-accent badge-outline">{email}</div>
       </td>
       <td>{category}</td>
-      <th>{price}</th>
-      <th>{quantity}</th>
-      <th>
-        <Button outline={true} gradientDuoTone="cyanToBlue">
-          View Details
-        </Button>
-      </th>
+      <td>{price}</td>
+      <td>{quantity}</td>
+      <td>
+      <Link to={`/details/${_id}`}>
+        <Button
+        className="mt-auto"
+      outline={true}
+      gradientDuoTone="cyanToBlue"
+    >
+      View Details
+    </Button>
+        </Link>
+      </td>
     </tr>
   );
 };
