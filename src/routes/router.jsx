@@ -7,10 +7,11 @@ import Home from '../Pages/HomePage/Home/Home';
 import Login from '../Pages/LoginPage/Login';
 import SignUp from '../Pages/SignupPage/SignUp';
 import AuthProvider from '../Provider/AuthProvider';
-import MyToy from '../Pages/MyToys/MyToy';
 import AllToy from '../Pages/AllToys/AllToy';
 import AddToy from '../Pages/AddToy/AddToy';
 import Blog from '../Pages/Blog/Blog';
+import MyToys from '../Pages/MyToys/MyToys';
+import EditToy from '../Pages/MyToys/EditToy';
 
   const router = createBrowserRouter([
     {
@@ -31,11 +32,17 @@ import Blog from '../Pages/Blog/Blog';
         },
         {
           path: '/mytoys',
-          element: <MyToy></MyToy>
+          element: <MyToys></MyToys>
+        },
+        {
+          path: '/edit/:id',
+          element: <EditToy></EditToy>,
+          loader: ({params}) => fetch(`https://toy-marketplace-server-henna.vercel.app/toys/${params.id}`)
         },
         {
           path: '/alltoys',
-          element: <AllToy></AllToy>
+          element: <AllToy></AllToy>,
+          loader: () => fetch('https://toy-marketplace-server-henna.vercel.app/toys')
         },
         {
           path: '/addtoy',

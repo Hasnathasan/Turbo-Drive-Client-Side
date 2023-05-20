@@ -6,7 +6,7 @@ const CarCard = ({toy}) => {
   return (
     <div>
       <Card className="h-full flex flex-col" imgSrc={photo}>
-        <h5 className="text-2xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r to-[#da8deb] from-[#47dcd1]">
+        <h5 className="text-2xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r to-[#d786e9] from-[#29ccc1]">
           {productName}
         </h5>
         <div className="flex justify-between mb-4 items-center">
@@ -20,9 +20,9 @@ const CarCard = ({toy}) => {
         <Button
         className="mt-auto"
       outline={true}
-      gradientDuoTone="greenToBlue"
+      gradientDuoTone="cyanToBlue"
     >
-      Green to Blue
+      View Details
     </Button>
       </Card>
     </div>

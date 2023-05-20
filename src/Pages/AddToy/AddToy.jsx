@@ -1,6 +1,7 @@
 import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 import React, { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
     const {user, loading} = useContext(AuthContext);
@@ -38,7 +39,16 @@ const AddToy = () => {
             body: JSON.stringify(newToy)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                if(data.insertedId){
+                    Swal.fire(
+                        'Good job!',
+                        'New Product Added!',
+                        'success'
+                      )
+                }
+                }
+            )
         console.log(newToy);
     }
   return (
