@@ -14,6 +14,7 @@ import MyToys from '../Pages/MyToys/MyToys';
 import EditToy from '../Pages/MyToys/EditToy';
 import Details from '../Pages/Details/Details';
 import ErrorPage from '../Pages/ErrorPage/ErrorPage';
+import PrivateRoute from '../Pages/PrivateRoute/PrivateRoute';
 
   const router = createBrowserRouter([
     {
@@ -34,7 +35,7 @@ import ErrorPage from '../Pages/ErrorPage/ErrorPage';
         },
         {
           path: '/mytoys',
-          element: <MyToys></MyToys>
+          element: <PrivateRoute><MyToys></MyToys></PrivateRoute>
         },
         {
           path: '/details/:id',

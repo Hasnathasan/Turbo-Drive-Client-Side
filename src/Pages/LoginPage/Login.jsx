@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import logo from "../../assets/car.png";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import useTitle from "../../CustomHooks/useTitle";
@@ -9,6 +9,10 @@ const Login = () => {
   useTitle("Turbo-Login")
     const [error, setError] = useState()
     const {signIn, googleSignIn} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate()
+    const from = location.state?.from?.pathname || "/";
+    console.log(from);
     const handleLogin = event => {
         event.preventDefault()
         const form = event.target;
@@ -23,6 +27,7 @@ const Login = () => {
                     'success'
                   )
                 form.reset()
+                navigate(from, {replace: true})
             })
             .catch(error => setError(error.message))
     }
@@ -35,6 +40,7 @@ const Login = () => {
                     'Click Ok',
                     'success'
                   )
+                  navigate(from, {replace: true})
             })
             .catch(error => setError(error.message))
     }

@@ -50,7 +50,7 @@ const MyToys = () => {
 
   const handleUpdate = (id) => {};
   return (
-    <div className="overflow-x-auto w-full">
+    <div className="overflow-x-auto mb-20 mt-5 w-full">
       <table className="table w-full">
         {/* head */}
         <thead>
