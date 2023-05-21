@@ -10,7 +10,7 @@ const ShopByCategory = () => {
   useEffect( () => {
     setLoading(true);
     fetch(
-      `https://toy-marketplace-server-henna.vercel.app/toys?category=${category}`
+      `http://localhost:5000/toys?category=${category}`
     )
       .then((res) => res.json())
       .then((data) => {

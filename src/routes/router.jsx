@@ -40,17 +40,17 @@ import PrivateRoute from '../Pages/PrivateRoute/PrivateRoute';
         {
           path: '/details/:id',
           element: <PrivateRoute><Details></Details></PrivateRoute>,
-          loader: ({params}) => fetch(`https://toy-marketplace-server-henna.vercel.app/toys/${params.id}`)
+          loader: ({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
         },
         {
           path: '/edit/:id',
           element: <EditToy></EditToy>,
-          loader: ({params}) => fetch(`https://toy-marketplace-server-henna.vercel.app/toys/${params.id}`)
+          loader: ({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
         },
         {
           path: '/alltoys',
           element: <AllToy></AllToy>,
-          loader: () => fetch('https://toy-marketplace-server-henna.vercel.app/toys')
+          loader: () => fetch('http://localhost:5000/toys')
         },
         {
           path: '/addtoy',

@@ -11,7 +11,7 @@ const MyToys = () => {
   useEffect(() => {
     if (user) {
       fetch(
-        `https://toy-marketplace-server-henna.vercel.app/toys?email=${user?.email}`
+        `http://localhost:5000/toys?email=${user?.email}`
       )
         .then((res) => res.json())
         .then((data) => {
