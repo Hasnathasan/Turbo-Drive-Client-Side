@@ -12,7 +12,7 @@ import {
 const FooterSection = () => {
   return (
       <Footer>
-        <div className="w-full h-full p-10 bg-slate-800 rounded-none sm:rounded my-0 md:my-10">
+        <div className="w-full h-full p-10 bg-slate-800 rounded-none sm:rounded my-0 md:my-5">
           <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
             <div>
               <img className="w-14" src={logo} alt="" />

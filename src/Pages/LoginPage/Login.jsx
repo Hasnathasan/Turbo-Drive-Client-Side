@@ -7,7 +7,7 @@ import useTitle from "../../CustomHooks/useTitle";
 
 const Login = () => {
   useTitle("Turbo-Login")
-    const [error, setError] = useState()
+    const [error, setError] = useState("")
     const {signIn, googleSignIn} = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate()
@@ -26,7 +26,6 @@ const Login = () => {
                     'Click Ok',
                     'success'
                   )
-                form.reset()
                 navigate(from, {replace: true})
             })
             .catch(error => setError(error.message))
@@ -35,11 +34,11 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(() => {
-                Swal.fire(
-                    'Login Successfull',
-                    'Click Ok',
-                    'success'
-                  )
+              Swal.fire(
+                'Login Successfull',
+                'Click Ok',
+                'success'
+                )
                   navigate(from, {replace: true})
             })
             .catch(error => setError(error.message))
@@ -61,7 +60,6 @@ const Login = () => {
             </h1>
             
             <form onSubmit={handleLogin} className="space-y-4 md:space-y-6" action="#">
-              <h3 className="text-base text-green-500"></h3>
               <h3 className="text-base text-red-600">{error}</h3>
               <div>
                 <label

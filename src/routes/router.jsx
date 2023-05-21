@@ -39,7 +39,7 @@ import PrivateRoute from '../Pages/PrivateRoute/PrivateRoute';
         },
         {
           path: '/details/:id',
-          element: <Details></Details>,
+          element: <PrivateRoute><Details></Details></PrivateRoute>,
           loader: ({params}) => fetch(`https://toy-marketplace-server-henna.vercel.app/toys/${params.id}`)
         },
         {
@@ -54,7 +54,7 @@ import PrivateRoute from '../Pages/PrivateRoute/PrivateRoute';
         },
         {
           path: '/addtoy',
-          element: <AddToy></AddToy>
+          element: <PrivateRoute><AddToy></AddToy></PrivateRoute>
         },
         {
           path: '/blog',
