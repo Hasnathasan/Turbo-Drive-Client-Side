@@ -13,7 +13,7 @@ const MyToys = () => {
   const [serchedText, setSerchedText] = useState("");
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:5000/toys?email=${user?.email}&sort=${sortType}`)
+      fetch(`https://toy-marketplace-server-henna.vercel.app/toys?email=${user?.email}&sort=${sortType}`)
         .then((res) => res.json())
         .then((data) => {
           setToys(data);
@@ -21,7 +21,7 @@ const MyToys = () => {
     }
   }, [user, sortType]);
 
-  console.log(toys);
+  
   const handleSortBy = (event) => {
     const type = event.target.value;
     if (type === "ascending") {
@@ -30,7 +30,7 @@ const MyToys = () => {
       setSortType(-1);
     }
   };
-  console.log(sortType);
+  
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -42,7 +42,7 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/toys/${id}`, {
+        fetch(`https://toy-marketplace-server-henna.vercel.app/toys/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -58,7 +58,7 @@ const MyToys = () => {
   };
   const handleSearch = (event) => {
     event.preventDefault()
-    fetch(`http://localhost:5000/serchedJobs?serchedText=${serchedText}&email=${user?.email}`)
+    fetch(`https://toy-marketplace-server-henna.vercel.app/serchedJobs?serchedText=${serchedText}&email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setToys(data);
@@ -108,7 +108,7 @@ const MyToys = () => {
         className="select select-info float-right mb-4 mt-1 w-full max-w-xs"
         onChange={handleSortBy}
       >
-        <option disabled selected>
+        <option>
           Short By
         </option>
         <option value="ascending">ascending</option>

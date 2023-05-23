@@ -8,7 +8,7 @@ const Gallery = () => {
       .then((data) => setGallary(data[0].gallery));
   }, []);
 
-  console.log(gallery);
+  
   return (
     <div className="my-32 px-4 md:px-0">
         <h1 className="text-2xl md:text-5xl uppercase font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r to-[#da8deb] from-[#47dcd1]">Try The Realstic Toys</h1>

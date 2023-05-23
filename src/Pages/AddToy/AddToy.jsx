@@ -34,7 +34,7 @@ const AddToy = () => {
             quantity,
             description
         }
-        fetch('http://localhost:5000/toys', {
+        fetch('https://toy-marketplace-server-henna.vercel.app/toys', {
             method: "POST",
             headers: {
                 'content-type': "application/json"
@@ -52,7 +52,7 @@ const AddToy = () => {
                 }
                 }
             )
-        console.log(newToy);
+        
     }
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-20">

@@ -24,7 +24,7 @@ const EditToy = () => {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/toys/${_id}`, {
+        fetch(`https://toy-marketplace-server-henna.vercel.app/toys/${_id}`, {
           method: "PATCH",
           headers: {
             "content-type": "application/json",
@@ -33,7 +33,7 @@ const EditToy = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            
             if (data.modifiedCount == 0) {
               Swal.fire("Change something!", "", "error");
             } else if (data.modifiedCount > 0) {
@@ -45,7 +45,7 @@ const EditToy = () => {
       }
     });
   };
-  console.log(toy);
+  
   return (
     <div className="w-full bg-white rounded-lg shadow mx-auto  md:mt-0 sm:max-w-md p-10">
       <form
