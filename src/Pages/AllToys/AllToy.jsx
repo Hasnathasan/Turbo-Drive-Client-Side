@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import ToyRow from "./ToyRow";
 import useTitle from "../../CustomHooks/useTitle";
@@ -21,8 +21,8 @@ const AllToy = () => {
           </tr>
         </thead>
         <tbody>
-          {
-            toys.map(toy => <ToyRow key={toy._id} toy={toy}></ToyRow>)
+          { 
+            toys?.map(toy => <ToyRow key={toy._id} toy={toy}></ToyRow>)
           }
         </tbody>
       </table>
