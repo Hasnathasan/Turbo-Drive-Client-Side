@@ -14,11 +14,11 @@ const AppSection = () => {
         <h1 className="text-2xl py-2 md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r to-[#dc78f3] from-[#2fb9b0]">
           Try Our <br /> <span className="text-3xl md:text-6xl">All New App</span>
         </h1>
-        <h5 className="text-2xl font-semibold text-slate-600 my-4">
+        <h5 className="text-base md:text-2xl font-semibold text-slate-600 my-4">
           Introducing the All New Toy Marketplace App: A World of Wonder at Your
           Fingertips!
         </h5>
-        <p className="text-base text-slate-500">
+        <p className="text-sm md:text-base text-slate-500">
         The app's commitment to safety extends beyond its verification process. It also provides robust privacy settings, ensuring that parents can monitor and control their children's interactions within the app. With a dedicated section for educational toys and resources.
         </p>
         <div className="items-center mt-6  space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
