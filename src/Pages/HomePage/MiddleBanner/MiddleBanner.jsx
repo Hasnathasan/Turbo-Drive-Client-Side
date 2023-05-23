@@ -12,7 +12,7 @@ const MiddleBanner = () => {
       <div>
         <h5 className="text-xl text-white">Gaming Collection</h5>
         <h2 className="text-white font-bold text-xl md:text-5xl">
-          <span className="text-yellow-400 mb-3 text-3xl">FPLAYSTATION 4</span>{" "}
+          <span className="text-yellow-400 mb-3 text-3xl">PLAYSTATION 4</span>{" "}
           <br /> Dualshock Controller
         </h2>
         <h6 className="text-base my-5 font-normal text-white">
