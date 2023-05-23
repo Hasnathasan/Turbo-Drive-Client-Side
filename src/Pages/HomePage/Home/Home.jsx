@@ -4,6 +4,7 @@ import Gallery from '../Gallery/Gallery';
 import ShopByCategory from '../ShopByCategory/ShopByCategory';
 import useTitle from '../../../CustomHooks/useTitle';
 import MiddleBanner from '../MiddleBanner/MiddleBanner';
+import AppSection from '../AppSection/AppSection';
 
 const Home = () => {
     useTitle("Turbo-Home")
@@ -13,6 +14,7 @@ const Home = () => {
             <Gallery></Gallery>
             <ShopByCategory></ShopByCategory>
             <MiddleBanner></MiddleBanner>
+            <AppSection></AppSection>
         </div>
     );
 };

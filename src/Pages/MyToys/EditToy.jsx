@@ -33,6 +33,7 @@ const EditToy = () => {
         })
           .then((res) => res.json())
           .then((data) => {
+            console.log(data);
             if (data.modifiedCount == 0) {
               Swal.fire("Change something!", "", "error");
             } else if (data.modifiedCount > 0) {
