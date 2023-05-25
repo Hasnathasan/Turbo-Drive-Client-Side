@@ -1,4 +1,3 @@
-import React from "react";
 import logo from "../../../assets/car.png";
 import { Footer } from "flowbite-react";
 import {

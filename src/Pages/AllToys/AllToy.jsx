@@ -1,4 +1,3 @@
-import React from "react";
 import { useLoaderData } from "react-router-dom";
 import ToyRow from "./ToyRow";
 import useTitle from "../../CustomHooks/useTitle";

@@ -1,5 +1,3 @@
-import { Card } from "flowbite-react";
-import React from "react";
 import { useLoaderData } from "react-router-dom";
 import useTitle from "../../CustomHooks/useTitle";
 

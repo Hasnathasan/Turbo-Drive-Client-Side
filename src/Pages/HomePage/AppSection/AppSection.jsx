@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/no-unescaped-entities */
 import appBanner from "../../../assets/appBanner.jpg";
 
 const AppSection = () => {

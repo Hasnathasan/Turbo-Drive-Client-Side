@@ -1,6 +1,7 @@
-import React, { useContext, useState } from "react";
+/* eslint-disable react/no-unescaped-entities */
+import { useContext, useState } from "react";
 import logo from "../../assets/car.png";
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import useTitle from "../../CustomHooks/useTitle";

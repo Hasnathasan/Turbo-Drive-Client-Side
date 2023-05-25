@@ -1,4 +1,4 @@
-import React from "react";
+
 import midBanner from "../../../assets/midBanner.jpg";
 import remote from "../../../assets/remote.png";
 

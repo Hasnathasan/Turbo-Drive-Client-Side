@@ -1,5 +1,4 @@
 import { Carousel } from 'flowbite-react';
-import React from 'react';
 import banner2 from '../../../assets/banner2.jpg'
 import banner3 from '../../../assets/banner3.jpg'
 

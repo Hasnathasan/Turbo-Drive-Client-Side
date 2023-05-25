@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Toy from "./Toy";
 import Swal from "sweetalert2";
@@ -7,7 +7,7 @@ import { Button } from "flowbite-react";
 
 const MyToys = () => {
   useTitle("Turbo-My toys");
-  const { user, loading, setLoading } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
   const [sortType, setSortType] = useState("");
   const [serchedText, setSerchedText] = useState("");
