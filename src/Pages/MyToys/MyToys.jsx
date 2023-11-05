@@ -13,7 +13,9 @@ const MyToys = () => {
   const [serchedText, setSerchedText] = useState("");
   useEffect(() => {
     if (user) {
-      fetch(`https://toy-marketplace-server-henna.vercel.app/toys?email=${user?.email}&sort=${sortType}`)
+      fetch(
+        `https://toy-marketplace-server-henna.vercel.app/toys?email=${user?.email}&sort=${sortType}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setToys(data);
@@ -21,7 +23,6 @@ const MyToys = () => {
     }
   }, [user, sortType]);
 
-  
   const handleSortBy = (event) => {
     const type = event.target.value;
     if (type === "ascending") {
@@ -30,7 +31,7 @@ const MyToys = () => {
       setSortType(-1);
     }
   };
-  
+
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -57,8 +58,10 @@ const MyToys = () => {
     });
   };
   const handleSearch = (event) => {
-    event.preventDefault()
-    fetch(`https://toy-marketplace-server-henna.vercel.app/serchedJobs?serchedText=${serchedText}&email=${user?.email}`)
+    event.preventDefault();
+    fetch(
+      `https://toy-marketplace-server-henna.vercel.app/serchedJobs?serchedText=${serchedText}&email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setToys(data);
@@ -94,11 +97,7 @@ const MyToys = () => {
             required
           />
           <div className="absolute right-2.5 bottom-1.5">
-            <Button
-            type="submit"
-              outline={true}
-              gradientDuoTone="cyanToBlue"
-            >
+            <Button type="submit" outline={true} gradientDuoTone="cyanToBlue">
               Search
             </Button>
           </div>
@@ -108,9 +107,7 @@ const MyToys = () => {
         className="select select-info float-right mb-4 mt-1 w-full max-w-xs"
         onChange={handleSortBy}
       >
-        <option>
-          Short By
-        </option>
+        <option>Short By</option>
         <option value="ascending">ascending</option>
         <option value="descending">descending</option>
       </select>

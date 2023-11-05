@@ -32,7 +32,6 @@ const EditToy = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            
             if (data.modifiedCount == 0) {
               Swal.fire("Change something!", "", "error");
             } else if (data.modifiedCount > 0) {
@@ -44,7 +43,7 @@ const EditToy = () => {
       }
     });
   };
-  
+
   return (
     <div className="w-full bg-white rounded-lg shadow mx-auto  md:mt-0 sm:max-w-md p-10">
       <form

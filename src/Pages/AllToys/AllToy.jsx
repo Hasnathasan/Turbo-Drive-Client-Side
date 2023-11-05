@@ -3,7 +3,7 @@ import ToyRow from "./ToyRow";
 import useTitle from "../../CustomHooks/useTitle";
 
 const AllToy = () => {
-  useTitle("Turbo-All toys")
+  useTitle("Turbo-All toys");
   const toys = useLoaderData();
   return (
     <div className="overflow-x-auto mb-20 mt-5 w-full">
@@ -20,9 +20,9 @@ const AllToy = () => {
           </tr>
         </thead>
         <tbody>
-          { 
-            toys?.map(toy => <ToyRow key={toy._id} toy={toy}></ToyRow>)
-          }
+          {toys?.map((toy) => (
+            <ToyRow key={toy._id} toy={toy}></ToyRow>
+          ))}
         </tbody>
       </table>
     </div>

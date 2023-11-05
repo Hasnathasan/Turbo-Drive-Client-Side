@@ -1,5 +1,4 @@
 import { Button } from "flowbite-react";
-import React, { useState } from "react";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -48,9 +47,7 @@ const Toy = ({ toy, handleDelete }) => {
       </td>
       <td>{rating}</td>
       <td>
-        <h3>
-          {price}
-        </h3>
+        <h3>{price}</h3>
       </td>
       <td>
         <div className="flex gap-3">

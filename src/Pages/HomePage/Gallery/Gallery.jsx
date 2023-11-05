@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 const Gallery = () => {
   const [gallery, setGallary] = useState([]);
+  console.log(gallery);
   useEffect(() => {
     fetch("https://toy-marketplace-server-henna.vercel.app/gallery")
       .then((res) => res.json())
@@ -16,9 +17,9 @@ const Gallery = () => {
         {gallery.map((col) => (
           <div key={gallery.indexOf(col)} className="grid gap-4">
             {col.map((img) => (
-              <div key={col.indexOf(img)}>
+              <div className="" key={col.indexOf(img)}>
                 <img
-                  className="h-auto max-w-full hover:scale-105 transition-all rounded-lg"
+                  className="h-full max-w-full hover:scale-105 transition-all rounded-lg"
                   src={img}
                   alt=""
                 />

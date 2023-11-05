@@ -7,43 +7,35 @@ import Swal from "sweetalert2";
 import useTitle from "../../CustomHooks/useTitle";
 
 const Login = () => {
-  useTitle("Turbo-Login")
-    const [error, setError] = useState("")
-    const {signIn, googleSignIn} = useContext(AuthContext);
-    const location = useLocation();
-    const navigate = useNavigate()
-    const from = location.state?.from?.pathname || "/";
-    
-    const handleLogin = event => {
-        event.preventDefault()
-        const form = event.target;
-        const email = form.email.value;
-        const password = form.password.value;
-        
-        signIn(email, password)
-            .then(() => {
-                Swal.fire(
-                    'Login Successfull',
-                    'Click Ok',
-                    'success'
-                  )
-                navigate(from, {replace: true})
-            })
-            .catch(error => setError(error.message))
-    }
+  useTitle("Turbo-Login");
+  const [error, setError] = useState("");
+  const { signIn, googleSignIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
 
-    const handleGoogleSignIn = () => {
-        googleSignIn()
-            .then(() => {
-              Swal.fire(
-                'Login Successfull',
-                'Click Ok',
-                'success'
-                )
-                  navigate(from, {replace: true})
-            })
-            .catch(error => setError(error.message))
-    }
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signIn(email, password)
+      .then(() => {
+        Swal.fire("Login Successfull", "Click Ok", "success");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => setError(error.message));
+  };
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then(() => {
+        Swal.fire("Login Successfull", "Click Ok", "success");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => setError(error.message));
+  };
   return (
     <div>
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto">
@@ -59,8 +51,12 @@ const Login = () => {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
               Sign in to your account
             </h1>
-            
-            <form onSubmit={handleLogin} className="space-y-4 md:space-y-6" action="#">
+
+            <form
+              onSubmit={handleLogin}
+              className="space-y-4 md:space-y-6"
+              action="#"
+            >
               <h3 className="text-base text-red-600">{error}</h3>
               <div>
                 <label
@@ -134,30 +130,32 @@ const Login = () => {
                 </Link>
               </p>
             </form>
-            <h4 className="text-center text-primary1 font-semibold text-lg my-0">or</h4>
+            <h4 className="text-center text-primary1 font-semibold text-lg my-0">
+              or
+            </h4>
             <hr />
-              <button
+            <button
               onClick={handleGoogleSignIn}
-                type="button"
-                className="w-full text-white bg-primary2 hover:bg-primary1/90 focus:ring-4 focus:outline-none focus:ring-primary2/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex justify-center items-center mr-2 mb-2"
+              type="button"
+              className="w-full text-white bg-primary2 hover:bg-primary1/90 focus:ring-4 focus:outline-none focus:ring-primary2/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex justify-center items-center mr-2 mb-2"
+            >
+              <svg
+                className="w-4 h-4 mr-2 -ml-1"
+                aria-hidden="true"
+                focusable="false"
+                data-prefix="fab"
+                data-icon="google"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 488 512"
               >
-                <svg
-                  className="w-4 h-4 mr-2 -ml-1"
-                  aria-hidden="true"
-                  focusable="false"
-                  data-prefix="fab"
-                  data-icon="google"
-                  role="img"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 488 512"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"
-                  ></path>
-                </svg>
-                Sign in with Google
-              </button>
+                <path
+                  fill="currentColor"
+                  d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"
+                ></path>
+              </svg>
+              Sign in with Google
+            </button>
           </div>
         </div>
       </div>

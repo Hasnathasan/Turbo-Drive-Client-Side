@@ -11,21 +11,23 @@ const ToyRow = ({ toy }) => {
         </div>
       </th>
       <td>
-        <h5 className="text-xs md:text-lg mb-1 font-semibold text-slate-500">{name}</h5>
+        <h5 className="text-xs md:text-lg mb-1 font-semibold text-slate-500">
+          {name}
+        </h5>
         <div className="badge badge-accent badge-outline">{email}</div>
       </td>
       <td>{category}</td>
       <td>{price}</td>
       <td>{quantity}</td>
       <td>
-      <Link to={`/details/${_id}`}>
-        <Button
-        className="mt-auto"
-      outline={true}
-      gradientDuoTone="cyanToBlue"
-    >
-      View Details
-    </Button>
+        <Link to={`/details/${_id}`}>
+          <Button
+            className="mt-auto"
+            outline={true}
+            gradientDuoTone="cyanToBlue"
+          >
+            View Details
+          </Button>
         </Link>
       </td>
     </tr>
