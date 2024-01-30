@@ -17,7 +17,7 @@ const ShopByCategory = () => {
         setToys(data);
         setLoading(false);
       });
-  }, [category]);
+  }, [category, setLoading]);
 
   return (
     <div className="my-36">
